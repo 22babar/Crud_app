@@ -7,12 +7,14 @@
     <button type="button" class="btn btn-primary" data-toggle= "modal" data-target="#exampleModal" >Add Bank</button>
     </div>
 
-    <table class="table table-hover table-dark  table-striped table-bordered" >
+    <table class="table table-hover   table-striped table-bordered" >
         <thead>
             <tr>
                 <th>SR</th>
                 <th>Bank Name</th>
                 <th>Full Name</th>
+                <th>Update</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +32,8 @@
                 <td>  <?php echo $row['SR']; ?></td>
                 <td><?php echo $row['BANK_NAME']; ?></td>
                 <td><?php echo $row['FULL NAME']; ?></td>
+                <td><a href="update.php?id=<?php echo $row['SR']; ?>" class="btn btn-success">Update</a></td>
+                <td><a href="delete.php?id=<?php echo $row['SR']; ?>" class="btn btn-danger">Delete</a></td>
 
             </tr>
             <?php } ?>
@@ -38,7 +42,12 @@
 
 <?php 
             if(isset($_GET['message'])) {
-                echo "<h6 class='hello'>".$_GET['message']."</h6>";
+                echo "<h6 class='msg'>".$_GET['message']."</h6>";
+            }
+    ?>
+    <?php 
+            if(isset($_GET['insert_data'])) {
+                echo "<h6 class='ins'>".$_GET['insert_data']."</h6>";
             }
     ?>
 
